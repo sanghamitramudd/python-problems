@@ -1,2 +1,3 @@
 def remove_duplicate(nums):
-    if
+    if not nums:
+       
