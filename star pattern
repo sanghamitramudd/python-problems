@@ -1,0 +1,48 @@
+def print_star_pattern(n):
+    for i in range(1, n + 1):
+        print('*' * i)
+n = 5
+print_star_pattern(n)
+
+def print_star_pattern2(n):
+    for i in range(n, 0, -1):
+        print('*' * i)
+n = 5
+print_star_pattern2(n)
+
+def star_pattern_club_of_above_two(n):
+    for i in range(1, n + 1):
+        print('*' * i)
+    for i in range(n, 0, -1):
+        print('*' * i)
+        
+n=5
+star_pattern_club_of_above_two(n)
+
+def star_pyramid_pattern(n):
+    for i in range(n):
+        print(' ' * (n - i - 1), end='')
+        print('*' * (2 * i + 1))
+        
+n=5
+star_pyramid_pattern(n)
+
+def star_inverted_pyramid_pattern(n):
+    for i in range(n-1,0,-1):
+        print(' ' * (n - i), end='')
+        print('*' * (2 * i - 1))
+        
+n=5
+star_inverted_pyramid_pattern(n)
+
+def star_mirrored_pyramid_pattern(n):
+    for i in range(n):
+        print(' ' * (n - i - 1), end='')
+        print('*' * (2 * i + 1))
+        
+    for i in range(n-1,0,-1):
+        print(' ' * (n - i), end='')
+        print('*' * (2 * i - 1))
+        
+n=5
+star_mirrored_pyramid_pattern(n)
