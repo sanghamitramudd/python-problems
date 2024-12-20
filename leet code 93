@@ -1,0 +1,27 @@
+# restore ip addresses
+from typing import List
+
+class Solution:
+    def restoreIpAddresses(self, s: str) -> List[str]:
+        res = []
+        
+        # Helper function for backtracking
+        def backtrack(start: int, dots: int, curIP: str):
+            # If we have placed 4 dots and used all characters, we have a valid IP
+            if dots == 4 and start == len(s):
+                res.append(curIP[:-1])  # Exclude the last dot
+                return
+            
+            # If we have placed more than 4 dots, return
+            if dots > 4:
+                return
+            
+            # Try placing a dot in different positions
+            for j in range(start, min(start + 3, len(s))):  # Each segment can be 1 to 3 digits
+                segment = s[start:j + 1]
+                # Check if the segment is valid
+                if (int(segment) < 256) and (start == j or s[start] != "0"):  # No leading zeros unless the segment is "0"
+                    backtrack(j + 1, dots + 1, curIP + segment + ".")  # Recur with the next start position and increment dot count
+        
+        backtrack(0, 0, "")  # Start backtracking from index 0 with 0 dots and an empty current IP
+        return res
